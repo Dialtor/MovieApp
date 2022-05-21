@@ -1,6 +1,6 @@
 import { getTrendingMoviesPreview } from "..";
 import {getCategoriesPreview} from '..';
-import nodes from './nodes';
+import nodes, { header_arrow } from './nodes';
 // searchFormBtn.addEventListener('click', () => {
 //     location.hash = `#search=${searchFormInput.value}`;
 // });
@@ -9,7 +9,7 @@ import nodes from './nodes';
 //     location.hash = '#trends';
 // });
 
-// arrowBtn.addEventListener('click', () => {
+//  header_arrow.addEventListener('click', () => {
 //     history.back();
 //     // location.hash = '#home';
 //     const stateLoad = window.history.state ? window.history.state.loadUrl : '';
@@ -19,6 +19,11 @@ import nodes from './nodes';
 //         window.history.back();
 //     }
 // });
+
+header_arrow.addEventListener('click', ()=>{
+    console.log('hey');
+    history.back();
+})
 
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -60,8 +65,6 @@ function homePage() {
 
 function categoriesPage() {
     console.log('categories!!');
-
-
     // ['#category', 'id-name']
     // const [_, categoryData] = location.hash.split('=');
     // const [categoryId, categoryName] = categoryData.split('-');
@@ -79,6 +82,7 @@ function movieDetailsPage() {
     nodes.info_movie_container.classList.add('inactive');
     nodes.header_container.classList.add('inactive');
     nodes.profile_container.classList.add('inactive');
+    nodes.header_arrow.classList.remove('inactive')
 
 
     // ['#movie', '234567']

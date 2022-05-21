@@ -270,7 +270,24 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
+
+.header-arrow {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(40%, -50%);
+  }
 
 .header-searchForm input {
     width: 30%;
@@ -365,6 +382,8 @@ main {
     color: white;
     font-weight: 300;
 }
+
+
 
 
 

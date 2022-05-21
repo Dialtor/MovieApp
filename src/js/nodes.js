@@ -12,6 +12,7 @@ const arrow_next_movie = $('.arrow-nextmovie');
 const featured_whatch_button = $('.featured-whatch-button');
 const header_container = $('.header-container');
 const profile_container = $('.profile-container');
+const header_arrow = $('.header-arrow');
 // const item_movie_trending = $('.item-movie');
 
 //Section Trending
@@ -35,4 +36,5 @@ module.exports = {
     categories_container,
     header_container,
     profile_container,
+    header_arrow,
 }
