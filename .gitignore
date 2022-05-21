@@ -1,0 +1,4 @@
+**/node_modules
+**/dist
+**/publick
+**package-lock.json
