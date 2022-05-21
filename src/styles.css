@@ -274,7 +274,8 @@ main {
 }
 
 .header-arrow {
-    font-size: 4rem;
+    font-weight: 100;
+    font-size: 4.4rem;
     margin-bottom: 16px;
     cursor: pointer;
     display: flex;
@@ -381,6 +382,20 @@ main {
     font-size: 4rem;
     color: white;
     font-weight: 300;
+}
+
+.movieById-container {
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(27, 26, 26, 0.857);
+    /* position: relative;
+    transform: translateY(-100%); */
+    animation: fade-in .8s forwards;
+    /* animation: fade-out .8s forwards; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 

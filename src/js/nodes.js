@@ -22,6 +22,9 @@ const trending_categories = $('.trending-movies-container');
 //Section Categories
 const categories_container = $('.categories-container');
 
+//Section Movie
+const movieById_container = $('.movieById-container')
+
 
 module.exports = {
     imgHeader,
@@ -37,4 +40,5 @@ module.exports = {
     header_container,
     profile_container,
     header_arrow,
+    movieById_container,
 }

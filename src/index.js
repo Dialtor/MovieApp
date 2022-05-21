@@ -52,6 +52,7 @@ async function createMovies(movies, container) {
         // movieContainer.classList.add('movie-container');
         item_movie.addEventListener('click', ()=>{
             location.hash = `#movie=${movie.id}`
+            // getMovieById(movie.id);
         });
 
         // const movieImg = document.createElement('img');
@@ -127,6 +128,26 @@ export async function getTrendingMoviesPreview() {
     // console.log('peliculas en tendencia', movies);
     // trending_categories.style.background="linear-gradient(90deg, rgba(255,255,255,0) 82%, rgba(11, 11, 11, 0.542) 100%)";
     createMovies(movies, nodes.trending_categories);
+}
+
+export async function getMovieById(id) {
+    const { data: movie } = await api(`movie/${id}`);
+    console.log(movie)
+
+    const movieImgUrl = 'https://image.tmdb.org/t/p/original' + movie.backdrop_path;
+    nodes.movieById_container.style.background =  `linear-gradient(90deg, rgba(255,255,255,0) 70%, rgba(11, 11, 11, 0.542) 100%),url(${movieImgUrl})`;
+    nodes.movieById_container.style.backgroundRepeat = "no-repeat";
+    nodes.movieById_container.style.backgroundSize = "cover";
+    nodes.movieById_container.style.backgroundPosition = "center";
+    nodes.movieById_container.classList.add('fade-in');
+    // movieDetailTitle.textContent = movie.title;
+    // movieDetailDescription.textContent = movie.overview;
+    // movieDetailScore.textContent = movie.vote_average;
+    
+
+    // createCategories(movie.genres, movieDetailCategoriesList);
+    // getRelatedMoviesId(id);
+
 }
 
 getRandomMovie();

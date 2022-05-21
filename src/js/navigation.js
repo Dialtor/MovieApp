@@ -1,4 +1,4 @@
-import { getTrendingMoviesPreview } from "..";
+import { getMovieById, getTrendingMoviesPreview } from "..";
 import {getCategoriesPreview} from '..';
 import nodes, { header_arrow } from './nodes';
 // searchFormBtn.addEventListener('click', () => {
@@ -21,7 +21,7 @@ import nodes, { header_arrow } from './nodes';
 // });
 
 header_arrow.addEventListener('click', ()=>{
-    console.log('hey');
+    // console.log('hey');
     history.back();
 })
 
@@ -59,6 +59,12 @@ function homePage() {
     // nodes.spinner.classList.remove('inactive');
     nodes.info_movie_container.classList.remove('inactive');
     nodes.profile_container.classList.remove('inactive');
+    nodes.header_arrow.classList.add('inactive');
+
+
+
+    nodes.movieById_container.classList.add('inactive');
+    nodes.movieById_container.innerHTML = '';
     getTrendingMoviesPreview();
     getCategoriesPreview();
 }
@@ -82,12 +88,12 @@ function movieDetailsPage() {
     nodes.info_movie_container.classList.add('inactive');
     nodes.header_container.classList.add('inactive');
     nodes.profile_container.classList.add('inactive');
-    nodes.header_arrow.classList.remove('inactive')
-
+    nodes.header_arrow.classList.remove('inactive');
+    nodes.movieById_container.classList.remove('inactive');
 
     // ['#movie', '234567']
-    // const [_, movieId] = location.hash.split('=');
-    // getMovieById(movieId);
+    const [_, movieId] = location.hash.split('=');
+    getMovieById(movieId);
 }
 
 function searchPage() {
