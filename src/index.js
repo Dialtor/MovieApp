@@ -23,12 +23,12 @@ async function createCategories(categories, container){
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('category-movie-container');
         categoryContainer.innerHTML = category.name;
-        // const categoryTitle = document.createElement('h3');
+        //const categoryTitle = document.createElement('h3');
         // categoryTitle.classList.add('category-title');
         // categoryTitle.setAttribute('id', 'id' + category.id);
-        // categoryTitle.addEventListener('click', () => {
-        //     location.hash = `#category=${category.id}-${category.name}`;
-        // })
+        categoryContainer.addEventListener('click', () => {
+            location.hash = `#category=${category.id}-${category.name}`;
+        })
         // const categoryTitleText = document.createTextNode(category.name);
         // categoryTitle.appendChild(categoryTitleText);
         // categoryContainer.appendChild(categoryTitle);
@@ -78,9 +78,6 @@ async function createMovies(movies, container) {
     // createCategories(movies, item_movie)
 }
 
-
-
-
 export const getRandomMovie = async () => {
     nodes.spinner.classList.add('active');
     nodes.spinner.classList.remove('inactive');
@@ -89,7 +86,7 @@ export const getRandomMovie = async () => {
     nodes.imgHeader.classList.add('active');
 
     const movie = data.results;
-    console.log('movie',movie);
+    // console.log('movie',movie);
     const randomMovie = movie[Math.floor(Math.random()*movie.length)];
     // const categories = randomMovie.genre_ids;
     // console.log(categories)
@@ -105,13 +102,13 @@ export const getRandomMovie = async () => {
         location.hash = `#movie=${randomMovie.id}`
     })
 
-    // createCategories(categories, nodes.category_element);
+    // createCategories(categories, nodes.info_movie_container);
 }
 
 export async function getCategoriesPreview() {
     const { data } = await api('genre/movie/list');
     const categories = data.genres;
-    console.log(categories);
+    // console.log(categories);
     nodes.categories_container.innerHTML = "";
     const categories_flex_container = document.createElement('div');
     const title_header_categories = document.createElement('h3');

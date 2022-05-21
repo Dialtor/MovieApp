@@ -127,7 +127,7 @@ main {
 }
 
 .arrow-nextmovie:hover {
-    background-color: var(--cyan3);
+    background-color: var(--violet2);
     opacity: .7;
 }
 
@@ -148,7 +148,7 @@ main {
 }
 
 .category-movie-container:hover {
-    color: var(--violet1);
+    color: var(--violet2);
 }
 
 .info-movie-container {
@@ -273,15 +273,32 @@ main {
 }
 
 .header-searchForm input {
-    width: 50%;
+    width: 30%;
     height: 40px;
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--violet1);
+    border-bottom: 1px solid var(--violet2);
     font-size: 3rem;
     color:  white;
     font-weight: 100;
     outline: none;
+    transition: all 0.2s ease;
+}
+
+.header-searchForm input:focus {
+    width: 60%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid var(--violet1);
+    outline: none;
+}
+
+.header-searchForm button {
+    width: 30px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .trending-movies-container {
