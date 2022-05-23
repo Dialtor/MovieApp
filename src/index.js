@@ -2,7 +2,7 @@ import './styles.css';
 import './js/animations';
 import './js/navigation';
 import secrets from './js/secrets'
-import nodes, { imgHeader, titleHeader, trending_categories } from './js/nodes';
+import nodes, { imgHeader, movieById_container, titleHeader, trending_categories } from './js/nodes';
 import axios from 'axios';
 
 const api = axios.create({
@@ -103,6 +103,8 @@ export const getRandomMovie = async () => {
         location.hash = `#movie=${randomMovie.id}`
     })
 
+    console.log(randomMovie.id);
+
     // createCategories(categories, nodes.info_movie_container);
 }
 
@@ -140,11 +142,26 @@ export async function getMovieById(id) {
     nodes.movieById_container.style.backgroundSize = "cover";
     nodes.movieById_container.style.backgroundPosition = "center";
     nodes.movieById_container.classList.add('fade-in');
+
+    const info_movieById_container = document.createElement('div');
+    info_movieById_container.classList.add('info-movieById-container')
+    movieById_container.appendChild(info_movieById_container);
+    const movieById_img = document.createElement('img');
+    movieById_img.classList.add('movieById-img');
+    movieById_img.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
+    const title_movieById = document.createElement('h1');
+    title_movieById.classList.add('.title-movieById');
+    title_movieById.innerHTML = `${movie.original_title}`;
+    const description_movieById = document.createElement('p');
+    description_movieById.classList.add('description-movieById');
+    description_movieById.innerHTML = `${movie.overview}`;
+    info_movieById_container.appendChild(movieById_img);
+    info_movieById_container.appendChild(title_movieById);
+    info_movieById_container.appendChild(description_movieById);
+
     // movieDetailTitle.textContent = movie.title;
     // movieDetailDescription.textContent = movie.overview;
     // movieDetailScore.textContent = movie.vote_average;
-    
-
     // createCategories(movie.genres, movieDetailCategoriesList);
     // getRelatedMoviesId(id);
 

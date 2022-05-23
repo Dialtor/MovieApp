@@ -13,18 +13,23 @@ const featured_whatch_button = $('.featured-whatch-button');
 const header_container = $('.header-container');
 const profile_container = $('.profile-container');
 const header_arrow = $('.header-arrow');
+const searchFormBtn =  $('#searchBtn');
+const searchFormInput = $('#searchFormInput');
+const searchFormContainer = ('#searchForm');
 // const item_movie_trending = $('.item-movie');
 
 //Section Trending
 const trending_categories = $('.trending-movies-container');
+const trending_movies_container = $('.trending-movies-container');
 
 
 //Section Categories
 const categories_container = $('.categories-container');
 
-//Section Movie
-const movieById_container = $('.movieById-container')
-
+//Section MovieByID
+const movieById_container = $('.movieById-container');
+const info_movieById_container = $('.info-movieById-container');
+const movieById_img = $('.movieById-img');
 
 module.exports = {
     imgHeader,
@@ -41,4 +46,10 @@ module.exports = {
     profile_container,
     header_arrow,
     movieById_container,
+    searchFormBtn,
+    searchFormInput,
+    searchFormContainer,
+    info_movieById_container,
+    movieById_img,
+    trending_movies_container,
 }

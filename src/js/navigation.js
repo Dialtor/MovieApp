@@ -1,9 +1,16 @@
 import { getMovieById, getTrendingMoviesPreview } from "..";
 import {getCategoriesPreview} from '..';
 import nodes, { header_arrow } from './nodes';
-// searchFormBtn.addEventListener('click', () => {
-//     location.hash = `#search=${searchFormInput.value}`;
-// });
+nodes.searchFormBtn.addEventListener('click', () => {
+    location.hash = `#search=${nodes.searchFormInput.value}`;
+});
+
+// input.addEventListener("keypress", function(event) {
+//     if (event.key === "Enter") {
+//       event.preventDefault();
+   
+//     }
+//   });
 
 // trendingBtn.addEventListener('click', () => {
 //     location.hash = '#trends';
@@ -22,8 +29,11 @@ import nodes, { header_arrow } from './nodes';
 
 header_arrow.addEventListener('click', ()=>{
     // console.log('hey');
-    history.back();
+    // history.back();
+    location.hash = '#home';
 })
+
+
 
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -60,6 +70,17 @@ function homePage() {
     nodes.info_movie_container.classList.remove('inactive');
     nodes.profile_container.classList.remove('inactive');
     nodes.header_arrow.classList.add('inactive');
+    nodes.movieById_container.classList.remove('active');
+    nodes.movieById_container.classList.add('inactive');
+    nodes.trending_categories.classList.remove('inactive');
+    nodes.trending_categories.classList.add('inactive');
+    nodes.trending_movies_container.classList.add('active');
+    nodes.trending_movies_container.classList.remove('inactive');
+    nodes.info_movieById_container.classList.add('inactive');
+    nodes.info_movieById_container.classList.remove('active')
+    nodes.movieById_img.classList.add('inactive');
+    nodes.movieById_img.classList.remove('active');
+    
 
 
 
@@ -90,7 +111,13 @@ function movieDetailsPage() {
     nodes.profile_container.classList.add('inactive');
     nodes.header_arrow.classList.remove('inactive');
     nodes.movieById_container.classList.remove('inactive');
+    nodes.movieById_container.classList.add('active');
+    nodes.trending_categories.classList.add('inactive');
+    nodes.categories_container.classList.add('inactive');
+    // nodes.info_movieById_container.classList.add('active');
+    // nodes.info_movieById_container.classList.remove('inactive');
 
+    nodes.movieById_container.innerHTML = '';
     // ['#movie', '234567']
     const [_, movieId] = location.hash.split('=');
     getMovieById(movieId);
