@@ -30,6 +30,7 @@ slider.addEventListener('mousemove', (e) => {
 });
 
 
+
 nodes.arrow_next_movie.addEventListener('click', ()=>{
     nodes.imgHeader.classList.remove('active');
     nodes.imgHeader.classList.add('inactive');

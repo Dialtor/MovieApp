@@ -336,6 +336,21 @@ main {
     cursor: pointer;
     display: flex;
   }
+.relation-movies-container {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    margin: 20px 0 100px 0 ;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* white-space: nowrap;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    will-change: transform; */
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+  }
 
   .items-movie .active {
     animation: fade-in 0.8s forwards;

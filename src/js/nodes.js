@@ -1,6 +1,7 @@
 const $ = (id) => document.querySelector(id);
 
 
+
 //Section Header
 const imgHeader = $('.featured-movie-container');
 const spinner = $('.spinner');
@@ -16,6 +17,7 @@ const header_arrow = $('.header-arrow');
 const searchFormBtn =  $('#searchBtn');
 const searchFormInput = $('#searchFormInput');
 const searchFormContainer = ('#searchForm');
+
 // const item_movie_trending = $('.item-movie');
 
 //Section Trending

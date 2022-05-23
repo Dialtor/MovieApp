@@ -79,7 +79,7 @@ async function createMovies(movies, container) {
         //     'src',
         //     'https://image.tmdb.org/t/p/w500' + movie.poster_path,
         // );
-        item_movie.style.background = `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`;
+        item_movie.style.background = `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`;
         item_movie.style.backgroundPosition = "center";
         item_movie.style.backgroundSize = "contain";
         item_movie.style.backgroundRepeat = "no-repeat";
@@ -109,7 +109,7 @@ export const getRandomMovie = async () => {
     // const categories = randomMovie.genre_ids;
     // console.log(categories)
     // console.log(randomMovie);
-    const movieImgUrl = 'https://image.tmdb.org/t/p/original' + randomMovie.backdrop_path;
+    const movieImgUrl = 'https://image.tmdb.org/t/p/w1280' + randomMovie.backdrop_path;
     nodes.imgHeader.style.backgroundImage = `linear-gradient(90deg, rgba(255,255,255,0) 70%, rgba(11, 11, 11, 0.542) 100%), url(${movieImgUrl})`;
     nodes.imgHeader.classList.add('fade-in');
     nodes.titleHeader.innerHTML  = randomMovie.original_title;
@@ -153,7 +153,7 @@ export async function getMovieById(id) {
     const { data: movie } = await api(`movie/${id}`);
     console.log(movie)
 
-    const movieImgUrl = 'https://image.tmdb.org/t/p/original' + movie.backdrop_path;
+    const movieImgUrl = 'https://image.tmdb.org/t/p/w1280' + movie.backdrop_path;
     nodes.movieById_container.style.background =  `linear-gradient(90deg, rgba(255,255,255,0) 70%, rgba(11, 11, 11, 0.542) 100%),url(${movieImgUrl})`;
     nodes.movieById_container.style.backgroundRepeat = "no-repeat";
     nodes.movieById_container.style.backgroundSize = "cover";
@@ -165,7 +165,7 @@ export async function getMovieById(id) {
     movieById_container.appendChild(info_movieById_container);
     const movieById_img = document.createElement('img');
     movieById_img.classList.add('movieById-img');
-    movieById_img.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
+    movieById_img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
     const title_movieById = document.createElement('h1');
     title_movieById.classList.add('.title-movieById');
     title_movieById.innerHTML = `${movie.original_title}`;
@@ -186,8 +186,19 @@ export async function getMovieById(id) {
     // createCategories(movie.genres, movieDetailCategoriesList);
     // getRelatedMoviesId(id);
 
-    createCategoriesMovieByID(movie.genres, categories_flex_container);
+    createCategories(movie.genres, categories_flex_container);
+    getRelatedMoviesId(movie.id,info_movieById_container);
+}
 
+async function getRelatedMoviesId(id,container) {
+    const { data } = await api(`movie/${id}/similar`);
+    const relatedMovies = data.results;
+    // const relations_Movies = document.createElement('div');
+    // relations_Movies.classList.add('relation-movies-container');
+    container.appendChild(nodes.trending_movies_container);
+
+    console.log(relatedMovies);
+    createMovies(relatedMovies, nodes.trending_movies_container);
 }
 
 getRandomMovie();

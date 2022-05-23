@@ -72,10 +72,11 @@ function homePage() {
     nodes.header_arrow.classList.add('inactive');
     nodes.movieById_container.classList.remove('active');
     nodes.movieById_container.classList.add('inactive');
+    nodes.trending_categories.classList.add('active');
     nodes.trending_categories.classList.remove('inactive');
-    nodes.trending_categories.classList.add('inactive');
-    nodes.trending_movies_container.classList.add('active');
-    nodes.trending_movies_container.classList.remove('inactive');
+    const mainContent = document.getElementsByTagName('main');
+    mainContent[0].appendChild(nodes.trending_categories);
+    mainContent[0].appendChild(nodes.categories_container);
     // nodes.info_movieById_container.classList.add('inactive');
     // nodes.info_movieById_container.classList.remove('active');
     // nodes.movieById_img.classList.add('inactive');
@@ -113,7 +114,8 @@ function movieDetailsPage() {
     nodes.header_arrow.classList.remove('inactive');
     nodes.movieById_container.classList.remove('inactive');
     nodes.movieById_container.classList.add('active');
-    nodes.trending_categories.classList.add('inactive');
+    nodes.trending_categories.classList.add('active');
+    nodes.trending_categories.classList.add('fade-in');
     nodes.categories_container.classList.add('inactive');
     // nodes.info_movieById_container.classList.add('active');
     // nodes.info_movieById_container.classList.remove('inactive');
