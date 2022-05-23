@@ -31,6 +31,7 @@ const movieById_container = $('.movieById-container');
 const info_movieById_container = $('.info-movieById-container');
 const movieById_img = $('.movieById-img');
 
+
 module.exports = {
     imgHeader,
     spinner,

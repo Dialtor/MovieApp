@@ -76,11 +76,12 @@ function homePage() {
     nodes.trending_categories.classList.add('inactive');
     nodes.trending_movies_container.classList.add('active');
     nodes.trending_movies_container.classList.remove('inactive');
-    nodes.info_movieById_container.classList.add('inactive');
-    nodes.info_movieById_container.classList.remove('active')
-    nodes.movieById_img.classList.add('inactive');
-    nodes.movieById_img.classList.remove('active');
-    
+    // nodes.info_movieById_container.classList.add('inactive');
+    // nodes.info_movieById_container.classList.remove('active');
+    // nodes.movieById_img.classList.add('inactive');
+    // nodes.movieById_img.classList.remove('active');
+    nodes.categories_container.classList.add('active');
+    nodes.categories_container.classList.remove('inactive');
 
 
 

@@ -2,7 +2,7 @@ import './styles.css';
 import './js/animations';
 import './js/navigation';
 import secrets from './js/secrets'
-import nodes, { imgHeader, movieById_container, titleHeader, trending_categories } from './js/nodes';
+import nodes, { imgHeader, info_movie_container, movieById_container, titleHeader, trending_categories } from './js/nodes';
 import axios from 'axios';
 
 const api = axios.create({
@@ -17,7 +17,24 @@ const api = axios.create({
 
 
 async function createCategories(categories, container){
-    container.innerHTML = '';
+    await categories.forEach(category => {
+
+        const categoryContainer = document.createElement('div');
+        categoryContainer.classList.add('category-movie-container');
+        categoryContainer.innerHTML = category.name;
+        //const categoryTitle = document.createElement('h3');
+        // categoryTitle.classList.add('category-title');
+        // categoryTitle.setAttribute('id', 'id' + category.id);
+        categoryContainer.addEventListener('click', () => {
+            location.hash = `#category=${category.id}-${category.name}`;
+        })
+        // const categoryTitleText = document.createTextNode(category.name);
+        // categoryTitle.appendChild(categoryTitleText);
+        // categoryContainer.appendChild(categoryTitle);
+        container.appendChild(categoryContainer);
+    });
+}
+async function createCategoriesMovieByID(categories, container){
     await categories.forEach(category => {
 
         const categoryContainer = document.createElement('div');
@@ -155,7 +172,11 @@ export async function getMovieById(id) {
     const description_movieById = document.createElement('p');
     description_movieById.classList.add('description-movieById');
     description_movieById.innerHTML = `${movie.overview}`;
+    const categories_flex_container = document.createElement('div');
+    categories_flex_container.classList.add('container-flex-movieById');
+
     info_movieById_container.appendChild(movieById_img);
+    info_movieById_container.appendChild(categories_flex_container);
     info_movieById_container.appendChild(title_movieById);
     info_movieById_container.appendChild(description_movieById);
 
@@ -164,6 +185,8 @@ export async function getMovieById(id) {
     // movieDetailScore.textContent = movie.vote_average;
     // createCategories(movie.genres, movieDetailCategoriesList);
     // getRelatedMoviesId(id);
+
+    createCategoriesMovieByID(movie.genres, categories_flex_container);
 
 }
 
