@@ -34,27 +34,13 @@ async function createCategories(categories, container){
         container.appendChild(categoryContainer);
     });
 }
-async function createCategoriesMovieByID(categories, container){
-    await categories.forEach(category => {
 
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('category-movie-container');
-        categoryContainer.innerHTML = category.name;
-        //const categoryTitle = document.createElement('h3');
-        // categoryTitle.classList.add('category-title');
-        // categoryTitle.setAttribute('id', 'id' + category.id);
-        categoryContainer.addEventListener('click', () => {
-            location.hash = `#category=${category.id}-${category.name}`;
-        })
-        // const categoryTitleText = document.createTextNode(category.name);
-        // categoryTitle.appendChild(categoryTitleText);
-        // categoryContainer.appendChild(categoryTitle);
-        container.appendChild(categoryContainer);
-    });
-}
-
-async function createMovies(movies, container) {
+async function createMovies(movies, container,categoryName) {
     container.innerHTML = '';
+    const headerCategoryTitle = document.createElement('h1');
+    headerCategoryTitle.classList.add('title-movie-list')
+    headerCategoryTitle.innerHTML = categoryName;
+    container.appendChild(headerCategoryTitle);
     movies.forEach(movie => {
         const item_movie = document.createElement('div');
         const spinner_categories = document.createElement('div');
@@ -201,6 +187,26 @@ async function getRelatedMoviesId(id,container) {
     createMovies(relatedMovies, nodes.trending_movies_container);
 }
 
+export async function getMoviesByCategory(id,categoryName) {
+    const { data } = await api('discover/movie', {
+        params: {
+            with_genres: id,
+        },
+    });
+    const movies = data.results;
+    createMovies(movies, nodes.movies_list_container,categoryName);
+
+}
+
+export async function getMoviesBySearch(query) {
+    const { data } = await api('search/movie', {
+        params: {
+            query: query,
+        },
+    });
+    const movies = data.results;
+    createMovies(movies, nodes.movies_list_container)
+}
 getRandomMovie();
 getTrendingMoviesPreview();
 getCategoriesPreview();

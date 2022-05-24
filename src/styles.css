@@ -7,6 +7,7 @@
     --cyan1: #0FEFFD;
     --cyan2: #0fedfd51;
     --cyan3: #5ee9f3;
+    --cyan4: #0fedfd07;
 }
 
 * {
@@ -95,7 +96,7 @@ main {
     background-position: center;
     background-size: cover;
     background-color: rgba(27, 26, 26, 0.857);
-    position: absolute;
+    position: relative;
     top: 0;
     /* position: relative;
     transform: translateY(-100%); */
@@ -287,7 +288,7 @@ main {
     justify-self: center;
     color: white;
     position: absolute;
-    left: 0;
+    left: 2%;
     top: 50%;
     transform: translate(40%, -50%);
   }
@@ -365,6 +366,8 @@ main {
     min-width: 300px;
     margin: 4px 10px 0 4px;
     position: relative;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .categories-container {
@@ -485,6 +488,36 @@ main {
 }
 
 
+.movies-list-container {
+    width: 84%;
+    height: auto;
+    background-color: var(--cyan4);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 80px 20px;
+}
+
+.item-movie-list {
+    background: rgb(17, 17, 17);
+    min-height: 450px;
+    min-width: 300px;
+    margin: 4px 10px 0 4px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.title-movie-list {
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    top: 110px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
 
 
 

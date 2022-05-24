@@ -17,6 +17,7 @@ const header_arrow = $('.header-arrow');
 const searchFormBtn =  $('#searchBtn');
 const searchFormInput = $('#searchFormInput');
 const searchFormContainer = ('#searchForm');
+const header_searchForm = $('.header-searchForm');
 
 // const item_movie_trending = $('.item-movie');
 
@@ -32,6 +33,9 @@ const categories_container = $('.categories-container');
 const movieById_container = $('.movieById-container');
 const info_movieById_container = $('.info-movieById-container');
 const movieById_img = $('.movieById-img');
+
+//Movies List
+const movies_list_container = $('.movies-list-container');
 
 
 module.exports = {
@@ -55,4 +59,6 @@ module.exports = {
     info_movieById_container,
     movieById_img,
     trending_movies_container,
+    movies_list_container,
+    header_searchForm,
 }
