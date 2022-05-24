@@ -205,7 +205,7 @@ export async function getMoviesBySearch(query) {
         },
     });
     const movies = data.results;
-    createMovies(movies, nodes.movies_list_container)
+    createMovies(movies, nodes.movies_list_container,query)
 }
 getRandomMovie();
 getTrendingMoviesPreview();
