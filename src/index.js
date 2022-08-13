@@ -13,7 +13,7 @@ const api = axios.create({
     params: {
         'api_key': secrets.API_KEY,
     },
-});
+})
 
 
 async function createCategories(categories, container){
@@ -128,7 +128,8 @@ export async function getCategoriesPreview() {
 }
 
 export async function getTrendingMoviesPreview() {
-    const { data } = await api('trending/movie/days');
+    const { data } = await api('trending/movie/day')
+
     const movies = data.results;
     // console.log('peliculas en tendencia', movies);
     // trending_categories.style.background="linear-gradient(90deg, rgba(255,255,255,0) 82%, rgba(11, 11, 11, 0.542) 100%)";
